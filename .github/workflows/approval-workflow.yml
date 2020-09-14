@@ -4,3 +4,11 @@ on: pull_request_review
 jobs:
   LabelOnApprove:
     runs-on: ubuntu-latest
+    steps:
+      - name: Label on approved        
+        uses: pullreminders/label-when-approved-action@master
+        env:
+          APPROVALS: "2"
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          ADD_LABEL: "approved"
+          REMOVE_LABEL: "awaiting%20review"
